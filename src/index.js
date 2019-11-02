@@ -14,8 +14,8 @@ subscribe(() => render(getState()))
 const incrementButton = document.getElementById('increment');
 const decrementButton = document.getElementById('decrement');
 const addFiveButton = document.getElementById('add-five');
-
 const removeFiveButton = document.getElementById('remove-five');
+const selectColor = document.getElementById('selectColor')
 
 incrementButton.addEventListener('click', e => dispatch({ type: "INCREMENT" }));
 
@@ -24,3 +24,25 @@ decrementButton.addEventListener('click', e => dispatch({ type: "DECREMENT" }));
 addFiveButton.addEventListener('click', e => dispatch({ type: "ADDFIVE" }));
 
 removeFiveButton.addEventListener('click', e => dispatch({ type: "REMOVEFIVE" }));
+
+selectColor.addEventListener("change", e => {
+
+    // console.log(e.target.value)
+    let color = e.target.value
+    
+        dispatch({
+            type: "CHANGECOLOR", color
+        })   
+});
+
+
+function addMore() {
+    let amount = window.prompt("How Much?");
+    amount = parseInt(amount, 10);
+    if (typeof amount === "number" && amount >= 0) {
+      store.dispatch({
+        type: "ADD",
+        amount: amount
+      });
+    }
+  }

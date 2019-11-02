@@ -1,9 +1,12 @@
 
 const initialState = {
-    value: 0
+    value: 0,
+    color: 'black'
 }
 
 const reducer = (state = initialState, action) => {
+
+    console.log(action)
     let { type } = action;
     if (type === "INCREMENT") {
         return {
@@ -28,6 +31,13 @@ const reducer = (state = initialState, action) => {
             value: state.value - 5
         }
     }
-    
+
+    else if (type === "CHANGECOLOR") {
+        return {
+            value: state.value,
+            color: action.color
+        }
+    } 
+  
     return state
 }
