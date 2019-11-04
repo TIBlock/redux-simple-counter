@@ -38,6 +38,14 @@ const reducer = (state = initialState, action) => {
             color: action.color
         }
     } 
+
+    else if (type === 'CUSTOMNUMBER') {
+        // console.log(value)
+        return {
+            value: action.value
+
+        }
+    }
   
     return state
 }
